@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="websiteApp" data-ng-controller="mainCtrl" class="h-100">
+<html lang="en" data-ng-app="websiteApp" data-ng-controller="mainController" class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -13,11 +13,15 @@
   <div class="container-fluid px-0 h-100">
     <div class="row no-gutters h-100">
       <div class="col-1">
-        <side-nav></side-nav>
+        <side-nav-component></side-nav-component>
       </div>
       <div class="col-11">
-        <div class="website-content h-100 w-100 bg-blackColor2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora eligendi distinctio laborum dignissimos, delectus hic aperiam perferendis quod dolore a expedita porro cum vitae officia consequatur dolor consectetur modi ad!
+        <div class="website-section h-100 w-100 pl-1">
+          <div class="website-content h-100 w-100 bg-blackColor2" data-ng-view>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora eligendi distinctio laborum dignissimos,
+            delectus hic aperiam perferendis quod dolore a expedita porro cum vitae officia consequatur dolor
+            consectetur modi ad!
+          </div>
         </div>
       </div>
     </div>

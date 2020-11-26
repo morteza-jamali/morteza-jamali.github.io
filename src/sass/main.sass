@@ -1,8 +1,12 @@
-@import ~bootstrap/dist/css/bootstrap.min.css
-@import ~@morteza-jamali/lineicons/WebFont/font-css/LineIcons.css
-
+$btn-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out
 $blackColor1 : #444
 $blackColor2 : #222
+
+@import ~bootstrap/scss/bootstrap
+@import ~@morteza-jamali/lineicons/WebFont/font-css/LineIcons.css
+
+.text-gray-light
+  color: gray("300")
 
 .bg-blackColor1
   background-color: $blackColor1
@@ -13,9 +17,28 @@ a , button
   text-decoration: none !important
 
 .sideNav
-  a
+  li
+    &.active i
+      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%)
+      -webkit-background-clip: text
+      -moz-background-clip: text
+      background-clip: text
+      -webkit-text-fill-color: transparent
+    &:not(:first-of-type)
+      border-top: 1px solid #666
+  button
     display: block
     height: 100%
     text-align: center
+    &:focus
+      box-shadow: none
+    &:hover
+      color: $white
   i
     display: block
+.website-section
+  background: -moz-linear-gradient(top, #e72c83 0%, #6c2582 100%)
+  background: -webkit-linear-gradient(top, #e72c83 0%, #6c2582 100%)
+  background: linear-gradient(to bottom, #e72c83 0%, #6c2582 100%)

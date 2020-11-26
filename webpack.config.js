@@ -19,7 +19,7 @@ let _plugins = [
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/ts/App.ts', './src/sass/main.sass'],
+  entry: ['./src/app/App.ts', './src/sass/main.sass'],
   module: {
     rules: [
       {
@@ -28,11 +28,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /\.css$/,
