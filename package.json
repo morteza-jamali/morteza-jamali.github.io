@@ -5,8 +5,8 @@
   "main": "dist/js/app.bundle.js",
   "typings": "src/typings/typings.d.ts",
   "scripts": {
-    "make": "npx webpack",
-    "makeWatch": "npm run make -- -w"
+    "build": "npx webpack --env development",
+    "build:watch": "npm run build -- -w"
   },
   "repository": {
     "type": "git",

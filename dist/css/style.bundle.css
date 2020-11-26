@@ -6,8 +6,8 @@ Author: lineicons.com
 -------------------------------- */
 @font-face {
   font-family: 'LineIcons';
-  src: url(../font/LineIcons.eot);
-  src: url(../font/LineIcons.eot) format('embedded-opentype'), url(../font/LineIcons.woff2) format('woff2'), url(../font/LineIcons.woff) format('woff'), url(../font/LineIcons.ttf) format('truetype'), url(../img/LineIcons.svg) format('svg');
+  src: url(../../assets/font/LineIcons.eot);
+  src: url(../../assets/font/LineIcons.eot) format('embedded-opentype'), url(../../assets/font/LineIcons.woff2) format('woff2'), url(../../assets/font/LineIcons.woff) format('woff'), url(../../assets/font/LineIcons.ttf) format('truetype'), url(../../assets/img/LineIcons.svg) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -12184,7 +12184,7 @@ h3 {
   }
 }
 .text-gray-light {
-  color: #dee2e6;
+  color: #adb5bd;
 }
 
 .bg-blackColor1 {
@@ -12199,12 +12199,33 @@ a, button {
   text-decoration: none !important;
 }
 
+.sideNav {
+  background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
+}
+.sideNav li {
+  background: #444;
+  transition: all 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sideNav li {
+    transition: none;
+  }
+}
+.sideNav li.active button {
+  color: #fff;
+}
 .sideNav li.active i {
   background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sideNav li.active i {
+    transition: none;
+  }
 }
 .sideNav li:not(:first-of-type) {
   border-top: 1px solid #666;
@@ -12224,6 +12245,12 @@ a, button {
   display: block;
 }
 
-.website-section {
-  background: linear-gradient(to bottom, #e72c83 0%, #6c2582 100%);
+.website-content .profile-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60%;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
