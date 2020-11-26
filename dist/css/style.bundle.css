@@ -2225,7 +2225,7 @@ Author: lineicons.com
   background-color: #222;
 }
 
-a {
+a, button {
   text-decoration: none !important;
 }
 
