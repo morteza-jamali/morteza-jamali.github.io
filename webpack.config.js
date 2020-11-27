@@ -1,11 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const YAML = require('yaml');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const config = YAML.parse(fs.readFileSync('./app.config.yml', 'utf8'));
 
 let _plugins = [
-  //new HtmlWebpackPlugin() ,
+  new HtmlWebpackPlugin({
+    title: config.title,
+    filename: '../../index.html',
+    meta: {
+      viewport: 'width=device-width, initial-scale=1.0'
+    }
+  }),
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: '../css/style.bundle.css'
@@ -18,14 +27,21 @@ let _plugins = [
   new webpack.DefinePlugin({
     PATH: JSON.stringify({
       IMAGES: 'assets/img'
-    })
+    }),
+    CONFIG: JSON.stringify(config)
   })
 ];
 
 module.exports = env => {
   return {
+    devtool: 'inline-source-map',
     mode: env.development ? 'development' : 'production',
     entry: ['./src/app/App.ts', './src/sass/main.sass'],
+    devServer: {
+      contentBase: '../../',
+      compress: true,
+      port: 9000
+    },
     module: {
       rules: [
         {

@@ -7,6 +7,7 @@
     "target": "es5",
     "allowJs": true,
     "jsx": "react",
-    "jsxFactory": "pragma"
+    "jsxFactory": "pragma",
+    "sourceMap": true
   }
 }

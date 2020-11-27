@@ -1,7 +1,6 @@
-import { default as config } from '../../app.config.json';
+declare const CONFIG: any;
 
 export const MainController = ($scope: any, $location: any) => {
-  $scope.title = config.title;
   $scope.activeLink = $location.path().replace('/' , '');
   
   $scope.goToPage = (path: string) => {

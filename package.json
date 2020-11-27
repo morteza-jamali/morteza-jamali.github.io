@@ -6,7 +6,8 @@
   "typings": "src/typings/typings.d.ts",
   "scripts": {
     "build": "npx webpack --env development",
-    "build:watch": "npm run build -- -w"
+    "build:watch": "npm run build -- -w",
+    "serve": "npx webpack serve"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,8 @@
     "ts-loader": "^8.0.11",
     "typescript": "^4.1.2",
     "webpack": "^5.6.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "yaml": "^1.10.0"
   }
 }
