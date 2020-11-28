@@ -1,5 +1,3 @@
-declare const CONFIG: any;
-
 export const MainController = ($scope: any, $location: any) => {
   $scope.activeLink = $location.path().replace('/' , '');
   

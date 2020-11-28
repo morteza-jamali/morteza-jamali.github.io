@@ -2,10 +2,32 @@ const path = require('path');
 const webpack = require('webpack');
 const YAML = require('yaml');
 const fs = require('fs');
+const liveServer = require("live-server");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = YAML.parse(fs.readFileSync('./app.config.yml', 'utf8'));
+const params = {
+  port: 9000,
+  root: __dirname,
+  open: false,
+  file: "index.html",
+  ignore: __dirname,
+  logLevel: 2,
+  middleware: [(req, res, next) => { next(); }]
+};
+let runServe = () => { };
+let webSocket = () => { };
+
+const serve = () => {
+  if (liveServer.watcher == null) {
+    liveServer.start(params);
+  }
+  liveServer.clients.forEach(function (ws) {
+    if (ws)
+      webSocket = ws.send;
+  });
+};
 
 let _plugins = [
   new HtmlWebpackPlugin({
@@ -15,7 +37,7 @@ let _plugins = [
       viewport: 'width=device-width, initial-scale=1.0'
     }
   }),
-  new CleanWebpackPlugin(),
+  new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
   new MiniCssExtractPlugin({
     filename: '../css/style.bundle.css'
   }),
@@ -29,19 +51,24 @@ let _plugins = [
       IMAGES: 'assets/img'
     }),
     CONFIG: JSON.stringify(config)
-  })
+  }),
+  {
+    apply: (compiler) => {
+      compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
+        runServe();
+        webSocket('reload');
+      });
+    }
+  }
 ];
 
 module.exports = env => {
+  runServe = env.preview ? serve : () => { };
+
   return {
     devtool: 'inline-source-map',
     mode: env.development ? 'development' : 'production',
     entry: ['./src/app/App.ts', './src/sass/main.sass'],
-    devServer: {
-      contentBase: '../../',
-      compress: true,
-      port: 9000
-    },
     module: {
       rules: [
         {
@@ -87,7 +114,7 @@ module.exports = env => {
     },
     output: {
       filename: 'app.bundle.js',
-      path: path.resolve(__dirname, './dist/js'),
+      path: path.resolve(__dirname, 'dist/js'),
       publicPath: ''
     },
     plugins: _plugins

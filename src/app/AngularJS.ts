@@ -11,9 +11,9 @@ class AngularJS {
     this.create = (name: string, modules: any[] = []) => {
       this.app = this.angular.module(name, modules);
 
+      this.app._controller = this.controller;
       this.app.component = this.component;
       this.app.setRoutes = this.setRoutes;
-      this.app._controller = this.controller;
 
       return this.app;
     };
@@ -40,12 +40,12 @@ class AngularJS {
   }
 
   controller(ctrl: any) {
-    let name = ctrl.name;
+    let name: any = ctrl.name;
     this.app = this;
     this.app.controller(
       name.replace(name[0], name[0].toLowerCase()),
       ctrl
-    )
+    );
   }
 }
 
