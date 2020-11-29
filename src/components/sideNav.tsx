@@ -28,7 +28,7 @@ class SideNav {
     {
       icon: "briefcase",
       text: "portfolio",
-      path: "portfolio"
+      path: "portfolios"
     }
   ];
 
@@ -51,6 +51,7 @@ class SideNav {
 
     this.init = () => (
       <ul class="sideNav user-select-none list-unstyled h-100 w-100 d-flex flex-column align-self-stretch">
+        <div class="overlay h-100"></div>
         {this.links}
       </ul>
     );

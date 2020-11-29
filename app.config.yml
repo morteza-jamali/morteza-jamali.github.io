@@ -1,1 +1,9 @@
 title: 'Morteza Jamali Website'
+social:
+- link: '#!'
+  icon: 'lni-facebook-filled'
+- link: 'https://twitter.com/MortezaJamali9'
+  icon: 'lni-twitter-filled'
+author:
+  name: 'Morteza Jamali'
+  email: 'mortezajamali4241@gmail.com'

@@ -37,9 +37,7 @@ let plugins = env => [
       viewport: 'width=device-width, initial-scale=1.0'
     }
   }),
-  new CleanWebpackPlugin({
-    cleanStaleWebpackAssets: false
-  }),
+  new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: 'css/style.bundle-[contenthash].css'
   }),
@@ -49,10 +47,12 @@ let plugins = env => [
     'window.jQuery': 'jquery',
   }),
   new webpack.DefinePlugin({
-    PATH: JSON.stringify({
-      IMAGES: 'assets/img'
-    }),
-    CONFIG: JSON.stringify(config)
+    GLOBALS: JSON.stringify({
+      PATH: {
+        IMAGES: 'assets/img'
+      },
+      CONFIG: config
+    })
   }),
   {
     apply: (compiler) => {

@@ -8,6 +8,8 @@ class AngularJS {
   constructor() {
     this.angular = angular;
 
+    this.prepare();
+
     this.create = (name: string, modules: any[] = []) => {
       this.app = this.angular.module(name, modules);
 
@@ -19,10 +21,20 @@ class AngularJS {
     };
   }
 
+  prepare() {
+    $('body').attr({
+      'data-ng-app': 'websiteApp',
+      'data-ng-controller': 'mainController'
+    })
+      .addClass('h-100 overflow-hidden')
+      .append('<index-page-component></index-page-component>');
+    $('html').addClass('h-100');
+  }
+
   component(component: any) {
     let name: string = component.name;
     this.app = this;
-    this.app.directive(
+    return this.app.directive(
       name.replace(name[0], name[0].toLowerCase()),
       component
     );
@@ -30,7 +42,7 @@ class AngularJS {
 
   setRoutes(routes: any[]) {
     this.app = this;
-    this.app.config(($routeProvider: any) => {
+    return this.app.config(($routeProvider: any) => {
       let provider: any = $routeProvider;
 
       for (let r of routes) {
@@ -42,7 +54,7 @@ class AngularJS {
   controller(ctrl: any) {
     let name: any = ctrl.name;
     this.app = this;
-    this.app.controller(
+    return this.app.controller(
       name.replace(name[0], name[0].toLowerCase()),
       ctrl
     );

@@ -1,0 +1,63 @@
+.text-gray-light
+  color: gray("500")
+
+.bg-blackColor1
+  background-color: $blackColor1
+.bg-blackColor2
+  background-color: $blackColor2
+
+a , button
+  text-decoration: none !important
+  &:focus
+    box-shadow: none !important
+
+[data-role="social"]
+  width: 40px
+  height: 40px
+  &:hover
+    background: rgba(255,255,255,0.3)
+.sideNav
+  background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+  background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+  background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%)
+  .overlay
+    position: absolute
+    top: 0
+    left: 0
+    background: $blackColor2
+    width: 0%
+    animation: sideNavOverlay 1s linear
+  li
+    background: $blackColor1
+    +transition($nav-link-transition)
+    &.active
+      button
+        color: $white
+      i
+        background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+        background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%)
+        background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%)
+        -webkit-background-clip: text
+        -moz-background-clip: text
+        background-clip: text
+        -webkit-text-fill-color: transparent
+        +transition($nav-link-transition)
+    &:not(:first-of-type)
+      border-top: 1px solid #666
+  button
+    display: block
+    height: 100%
+    text-align: center
+    &:hover
+      color: $white
+  i
+    display: block
+.website-content
+  .profile-image
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 60%
+    border-top-left-radius: 0 !important
+    border-top-right-radius: 0 !important
+    border-bottom-right-radius: 0 !important
