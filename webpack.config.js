@@ -29,17 +29,19 @@ const serve = () => {
   });
 };
 
-let _plugins = [
+let plugins = env => [
   new HtmlWebpackPlugin({
     title: config.title,
-    filename: '../../index.html',
+    filename: '../index.html',
     meta: {
       viewport: 'width=device-width, initial-scale=1.0'
     }
   }),
-  new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+  new CleanWebpackPlugin({
+    cleanStaleWebpackAssets: false
+  }),
   new MiniCssExtractPlugin({
-    filename: '../css/style.bundle.css'
+    filename: 'css/style.bundle-[contenthash].css'
   }),
   new webpack.ProvidePlugin({
     $: 'jquery',
@@ -113,10 +115,10 @@ module.exports = env => {
       extensions: ['.tsx', '.ts', '.js', '.css', '.sass', '.scss'],
     },
     output: {
-      filename: 'app.bundle.js',
-      path: path.resolve(__dirname, 'dist/js'),
+      filename: 'js/app.bundle-[contenthash].js',
+      path: path.resolve(__dirname, 'dist'),
       publicPath: ''
     },
-    plugins: _plugins
+    plugins: plugins(env)
   }
 };
