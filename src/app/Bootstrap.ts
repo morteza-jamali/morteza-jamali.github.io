@@ -2,10 +2,15 @@ import { IndexPageComponent } from '../pages/Index';
 import { SideNavComponent } from '../components/SideNav';
 
 import { MainController } from '../controllers/MainController';
+import { ProfileController } from '../controllers/ProfileController';
+
+import { Loader } from '../services/Loader';
+import { ScrollBar } from '../services/ScrollBar';
 
 export class Bootstrap {
   components: any[];
   controllers: any[];
+  services: any[];
   app: any;
 
   constructor(app: any) {
@@ -15,11 +20,17 @@ export class Bootstrap {
       SideNavComponent
     ];
     this.controllers = [
-      MainController
+      MainController,
+      ProfileController
+    ];
+    this.services = [
+      Loader,
+      ScrollBar
     ];
 
     this.controller();
     this.component();
+    this.service();
   }
 
   controller() {
@@ -31,6 +42,12 @@ export class Bootstrap {
   component() {
     for (let c of this.components) {
       this.app.component(c);
+    }
+  }
+
+  service() {
+    for (let s of this.services) {
+      this.app.service(`$$${s.name}`, s);
     }
   }
 }

@@ -1,16 +1,17 @@
 .text-gray-light
   color: gray("500")
-
 .bg-blackColor1
   background-color: $blackColor1
 .bg-blackColor2
   background-color: $blackColor2
-
 a , button
   text-decoration: none !important
   &:focus
     box-shadow: none !important
-
+[data-simplebar]
+  overflow: auto !important
+.simplebar-scrollbar::before
+  background-color: gray("300")
 [data-role="social"]
   width: 40px
   height: 40px

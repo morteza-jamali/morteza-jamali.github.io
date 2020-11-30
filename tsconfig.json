@@ -8,6 +8,7 @@
     "allowJs": true,
     "jsx": "react",
     "jsxFactory": "pragma",
-    "sourceMap": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
   }
 }

@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const YAML = require('yaml');
-const fs = require('fs');
+const fs = require('fs-extra');
 const liveServer = require("live-server");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = YAML.parse(fs.readFileSync('./app.config.yml', 'utf8'));
 const params = {
@@ -29,7 +28,16 @@ const serve = () => {
   });
 };
 
-let plugins = env => [
+(async () => {
+  try {
+    await fs.emptyDir(path.resolve(__dirname, 'dist/css'));
+    await fs.emptyDir(path.resolve(__dirname, 'dist/js'));
+  } catch (err) {
+    console.error(err)
+  }
+})();
+
+let plugins = [
   new HtmlWebpackPlugin({
     title: config.title,
     filename: '../index.html',
@@ -37,14 +45,13 @@ let plugins = env => [
       viewport: 'width=device-width, initial-scale=1.0'
     }
   }),
-  new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: 'css/style.bundle-[contenthash].css'
   }),
   new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
-    'window.jQuery': 'jquery',
+    'window.jQuery': 'jquery'
   }),
   new webpack.DefinePlugin({
     GLOBALS: JSON.stringify({
@@ -119,6 +126,6 @@ module.exports = env => {
       path: path.resolve(__dirname, 'dist'),
       publicPath: ''
     },
-    plugins: plugins(env)
+    plugins: plugins
   }
 };
