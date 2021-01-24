@@ -4,18 +4,22 @@ import ReactDOM from "react-dom";
 import styles from "./global.style";
 import routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
-import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Application } from "react-rainbow-components";
 
-const Routes = (array: any[] = []): ReturnType<typeof h>[] => {
+const Routes = (
+  array: HyperScript.ReturnType[] = []
+): HyperScript.ReturnType[] => {
   routes.map(({ path, component, exact }) =>
     array.push(h(Route, { path, exact, component }))
   );
   return array;
 };
 
+styles();
+
 ReactDOM.render(
-  h("div", { ...styles() }, [
+  h(Application, { className: "width-100 height-100" }, [
     h(React.Fragment, [h(BrowserRouter, [h(Switch, Routes())])]),
   ]),
   document.getElementById("root")
