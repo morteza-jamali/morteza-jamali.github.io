@@ -1,13 +1,17 @@
 import h from "react-hyperscript";
 import styles from "./App.style";
+import SideMenu from "../../components/SideMenu/SideMenu";
 import { Container, Grid } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
-export default () =>
+const App = () =>
   h(Container, { ...styles(), fluid: true }, [
-    h(Grid, [
-      h(Grid.Row, [
-        h(Grid.Column, { width: 4 }, "Left Column"),
-        h(Grid.Column, { width: 8 }, "Right Column"),
+    h(Grid, { columns: 2 }, [
+      h(Grid.Column, { stretched: true, width: 2 }, [h(SideMenu)]),
+      h(Grid.Column, { stretched: true, width: 14 }, [
+        h(Link, { to: "/profile" }, "Go to Profile"),
       ]),
     ]),
   ]);
+
+export default App;

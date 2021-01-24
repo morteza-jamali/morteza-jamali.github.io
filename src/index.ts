@@ -1,21 +1,23 @@
+import h from "react-hyperscript";
 import React from "react";
 import ReactDOM from "react-dom";
-import _styles from "./global.style";
+import styles from "./global.style";
+import routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
-import App from "./pages/App/App";
 import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+const Routes = (array: any[] = []): ReturnType<typeof h>[] => {
+  routes.map(({ path, component, exact }) =>
+    array.push(h(Route, { path, exact, component }))
+  );
+  return array;
+};
+
 ReactDOM.render(
-  <React.Fragment>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <App />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  </React.Fragment>,
+  h("div", { ...styles() }, [
+    h(React.Fragment, [h(BrowserRouter, [h(Switch, Routes())])]),
+  ]),
   document.getElementById("root")
 );
 
