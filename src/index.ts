@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import styles from "./global.style";
 import routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
+import theme from "./Modules/Theme";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Application } from "react-rainbow-components";
 
@@ -16,12 +17,12 @@ const Routes = (
   return array;
 };
 
-styles();
-
 ReactDOM.render(
-  h(Application, { className: "width-100 height-100" }, [
-    h(React.Fragment, [h(BrowserRouter, [h(Switch, Routes())])]),
-  ]),
+  h(
+    Application,
+    { className: `width-100 height-100 ${styles()}`, theme: theme("dark") },
+    [h(React.Fragment, [h(BrowserRouter, [h(Switch, Routes())])])]
+  ),
   document.getElementById("root")
 );
 
