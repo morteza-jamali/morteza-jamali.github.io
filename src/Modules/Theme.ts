@@ -1,7 +1,5 @@
 import themes from "../theme/theme";
 
-const ThemeCacheKey: string = "themeName";
-
 function isThemeName(
   name: RainBowNameSpace.Theme.ThemeProps | undefined
 ): name is RainBowNameSpace.Theme.ThemeProps {
@@ -13,9 +11,11 @@ function isThemeName(
 
 function theme(name?: RainBowNameSpace.Theme.ThemeProps) {
   if (name) {
-    window.localStorage.setItem(ThemeCacheKey, name);
+    window.localStorage.setItem(GLOBAL_VARS.THEME_CACHE_KEY, name);
   } else {
-    const themeCacheValue: any = window.localStorage.getItem(ThemeCacheKey);
+    const themeCacheValue: any = window.localStorage.getItem(
+      GLOBAL_VARS.THEME_CACHE_KEY
+    );
     name = isThemeName(themeCacheValue) ? themeCacheValue : "dark";
   }
 

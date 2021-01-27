@@ -1,21 +1,78 @@
 import h from "react-hyperscript";
+import React from "react";
 import styles from "./SideBar.style";
 import Items from "./Items";
 import Icon from "../Icon/Icon";
+import { useHistory } from "react-router-dom";
 import { Sidebar, SidebarItem } from "react-rainbow-components";
 
-const SideBarItems = (
-  array: HyperScript.ReturnType[] = []
-): HyperScript.ReturnType[] => {
-  Items.map(({ name, label, icon }, key) => {
+const SideBarItemLabel: SideBarComponent.Item.Label = (label) =>
+  h("span.all-caps", label);
+
+const SideBarItems: SideBarComponent.Item.Function = (
+  handleRoute,
+  selectedItem,
+  array = []
+) => {
+  Items.map(({ name, label, icon, path }, key) => {
     return array.push(
-      h(SidebarItem, { name, label, icon: h(Icon, { icon }), key })
+      h(".width-100", { className: selectedItem === name ? "actived" : "" }, [
+        h(SidebarItem, {
+          name,
+          onClick: () => handleRoute(path),
+          label: SideBarItemLabel(label),
+          icon: h(Icon, { icon, size: "2x", ...styles().icon }),
+          key,
+        }),
+      ])
     );
   });
 
   return array;
 };
 
-const SideBar: SideBarComponent.Function = () => h(Sidebar, { ...styles() }, SideBarItems());
+class SideBarClass extends React.Component {
+  state: {
+    selectedItem: string;
+  };
+  handleRoute: SideBarComponent.HandleRouteFunction;
+
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      selectedItem: "home",
+    };
+    this.handleRoute = props.handleRoute;
+  }
+
+  handleOnSelect = (_event: any, selectedItem: string) => {
+    this.setState({ selectedItem });
+  };
+
+  render() {
+    const { selectedItem } = this.state;
+
+    return h(
+      Sidebar,
+      {
+        selectedItem,
+        onSelect: this.handleOnSelect,
+        className: `height-100 padding-s ${styles().sidebar} `,
+      },
+      SideBarItems(this.handleRoute, selectedItem)
+    );
+  }
+}
+
+const SideBar: SideBarComponent.Function = () => {
+  let history = useHistory();
+
+  const handleRoute = (path: string) => {
+    history.push(path);
+  };
+
+  return h(SideBarClass, { handleRoute });
+};
 
 export default SideBar;

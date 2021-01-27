@@ -1,30 +1,25 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 
 const Items: SideBarComponent.Item.IPropsType[] = [
   {
     name: "home",
     label: "home",
-    icon: faCoffee,
+    path: "/",
+    icon: faHome,
   },
   {
-    name: "address card",
+    name: "profile",
     label: "profile",
-    icon: faCoffee,
+    path: "/profile",
+    icon: faUser,
   },
   {
-    name: "address card",
-    label: "profile",
-    icon: faCoffee,
-  },
-  {
-    name: "address card",
-    label: "profile",
-    icon: faCoffee,
-  },
-  {
-    name: "address card",
-    label: "profile",
-    icon: faCoffee,
+    name: "projects",
+    label: "projects",
+    path: "/projects",
+    icon: faCode,
   },
 ];
 

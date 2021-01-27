@@ -1,7 +1,7 @@
 import h from "react-hyperscript";
-import styles from "./App.style";
+import styles from "./Projects.style";
 
-const App = () =>
+const Projects = () =>
   h(
     ".flex.width-100.height-100.justify-content-center.align-items-center",
     { ...styles() },
@@ -9,9 +9,9 @@ const App = () =>
       h(
         "h1",
         { className: "display-title display-title-xl" },
-        "Welcome To My Portfolio"
+        "This Is My Projects Page"
       ),
     ]
   );
 
-export default App;
+export default Projects;

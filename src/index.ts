@@ -2,26 +2,16 @@ import h from "react-hyperscript";
 import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./global.style";
-import routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./Modules/Theme";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import MainLayout from "./components/MainLayout/MainLayout";
 import { Application } from "react-rainbow-components";
-
-const Routes = (
-  array: HyperScript.ReturnType[] = []
-): HyperScript.ReturnType[] => {
-  routes.map(({ path, component, exact }) =>
-    array.push(h(Route, { path, exact, component }))
-  );
-  return array;
-};
 
 ReactDOM.render(
   h(
     Application,
     { className: `width-100 height-100 ${styles()}`, theme: theme("dark") },
-    [h(React.Fragment, [h(BrowserRouter, [h(Switch, Routes())])])]
+    [h(React.Fragment, [h(MainLayout)])]
   ),
   document.getElementById("root")
 );
