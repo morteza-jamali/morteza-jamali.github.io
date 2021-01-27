@@ -34,6 +34,14 @@ declare global {
     ) => HyperScript.ReturnType[];
   }
 
+  namespace GroupMaker {
+    type Function = (
+      array: HyperScript.ReturnType[],
+      column: number,
+      row: number
+    ) => HyperScript.ReturnType;
+  }
+
   namespace SideBarComponent {
     type Function = () => HyperScript.ReturnType;
     type HandleRouteFunction = (path: string) => void;

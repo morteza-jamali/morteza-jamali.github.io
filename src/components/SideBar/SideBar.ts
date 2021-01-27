@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./SideBar.style";
 import Items from "./Items";
 import Icon from "../Icon/Icon";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Sidebar, SidebarItem } from "react-rainbow-components";
 
 const SideBarItemLabel: SideBarComponent.Item.Label = (label) =>
@@ -41,7 +41,7 @@ class SideBarClass extends React.Component {
     super(props);
 
     this.state = {
-      selectedItem: "home",
+      selectedItem: props.selectedItem,
     };
     this.handleRoute = props.handleRoute;
   }
@@ -67,12 +67,20 @@ class SideBarClass extends React.Component {
 
 const SideBar: SideBarComponent.Function = () => {
   let history = useHistory();
+  let location = useLocation();
+  let selectedItem: string = "";
+
+  for (let item of Items) {
+    if (location.pathname === item.path) {
+      selectedItem = item.name;
+    }
+  }
 
   const handleRoute = (path: string) => {
     history.push(path);
   };
 
-  return h(SideBarClass, { handleRoute });
+  return h(SideBarClass, { handleRoute, selectedItem });
 };
 
 export default SideBar;

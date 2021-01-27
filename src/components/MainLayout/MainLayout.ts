@@ -9,7 +9,7 @@ const MainLayout: MainLayoutComponent.Function = () =>
   h(BrowserRouter, [
     h(Page, { className: "flex" }, [
       h(".height-100.padding-m", [h(SideBar)]),
-      h(".flex-1-0-auto", [h(Switch, Router(routes))]),
+      h(".flex-1-1-auto", [h(Switch, Router(routes))]),
     ]),
   ]);
 
