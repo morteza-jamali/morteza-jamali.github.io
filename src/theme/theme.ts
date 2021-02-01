@@ -3,7 +3,8 @@ const themes: RainBowNameSpace.Theme.ITheme = {
     rainbow: {
       palette: {
         textColor: "#f8f9fa",
-        primary: "#195de6",
+        brandSecond: "#a00d6f",
+        brand: "#195de6",
         background: "#2a2e37",
         sideBar: {
           background: "#f8f9fa",

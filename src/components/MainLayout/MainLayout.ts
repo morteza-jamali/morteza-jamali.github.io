@@ -7,9 +7,9 @@ import { BrowserRouter, Switch } from "react-router-dom";
 
 const MainLayout: MainLayoutComponent.Function = () =>
   h(BrowserRouter, [
-    h(Page, { className: "flex" }, [
+    h(Page, [
       h(".height-100.padding-m", [h(SideBar)]),
-      h(".flex-1-1-auto", [h(Switch, Router(routes))]),
+      h(".flex-1-1-auto.flex", [h(Switch, Router(routes))]),
     ]),
   ]);
 

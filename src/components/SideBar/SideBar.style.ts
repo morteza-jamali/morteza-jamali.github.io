@@ -16,10 +16,10 @@ const styles = (th: any = theme()) => ({
       "& > div": {
         "&.actived": {
           "& li::before": {
-            backgroundColor: th.palette.primary,
+            backgroundColor: th.palette.brand,
           },
           "& button, & span": {
-            color: th.palette.primary,
+            color: th.palette.brand,
           },
         },
         "& li": {

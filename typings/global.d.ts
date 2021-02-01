@@ -5,6 +5,7 @@ import {
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 import { ApplicationProps } from "react-rainbow-components/components/Application";
+import { LoadingShapeProps } from "react-rainbow-components/components/LoadingShape";
 
 declare global {
   namespace Config {
@@ -34,12 +35,14 @@ declare global {
     ) => HyperScript.ReturnType[];
   }
 
-  namespace GroupMaker {
-    type Function = (
-      array: HyperScript.ReturnType[],
-      column: number,
-      row: number
-    ) => HyperScript.ReturnType;
+  namespace GroupComponent {
+    interface IPropsType {
+      array: HyperScript.ReturnType[];
+      column: number;
+      row: number;
+    }
+
+    type Function = (props: IPropsType) => HyperScript.ReturnType;
   }
 
   namespace SideBarComponent {
@@ -69,6 +72,18 @@ declare global {
         path: string;
       }
     }
+  }
+
+  namespace CardComponent {
+    type Function = (props: {
+      image: string;
+      title: string;
+      link: string;
+    }) => HyperScript.ReturnType;
+  }
+
+  namespace LoadingShapeComponent {
+    type Function = (props: any) => HyperScript.ReturnType;
   }
 
   namespace IconComponent {

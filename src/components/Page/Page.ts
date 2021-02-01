@@ -5,6 +5,6 @@ const Page: PageComponent.Function = ({
   ...rest
 }: {
   children?: any;
-}) => h(".container.no-padding.width-100.height-100", { ...rest }, children);
+}) => h(".container.no-padding.flex-1-1-auto.flex", { ...rest }, children);
 
 export default Page;

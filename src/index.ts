@@ -10,7 +10,10 @@ import { Application } from "react-rainbow-components";
 ReactDOM.render(
   h(
     Application,
-    { className: `width-100 height-100 ${styles()}`, theme: theme("dark") },
+    {
+      className: `fixed flex overflow-hidden ${styles()}`,
+      theme: theme("dark"),
+    },
     [h(React.Fragment, [h(MainLayout)])]
   ),
   document.getElementById("root")
