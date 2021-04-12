@@ -1,11 +1,8 @@
-import Head from "next/head";
-import { SideBar } from "../components/.";
+import { Head, SideBar } from "../components/.";
 
 const Home = () => (
   <>
-    <Head>
-      <title>Morteza Jamali</title>
-    </Head>
+    <Head title="My Portfolio" />
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
       assumenda eligendi quis non amet quod minima adipisci? Laborum, labore
