@@ -3,7 +3,7 @@ import { Container, Box } from "@material-ui/core";
 import { useFela } from "react-fela";
 import { Home } from "@material-ui/icons";
 import { Head, SideBar, ISideBarProps } from "../components/.";
-import { flexBox, fixedBox } from "./index.style";
+import { flexBox, fixedBox } from "../styles/index.style";
 
 const lists: ISideBarProps["lists"] = [
   [
