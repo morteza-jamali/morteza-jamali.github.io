@@ -9,8 +9,8 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "no-jekyll": "echo . >> ./out/.nojekyll",
-    "deploy": "npm run build && npm run export && npm run no-jekyll"
+    "afterBuild": "echo . >> ./out/.nojekyll && echo moraj.ir >> ./out/CNAME",
+    "deploy": "npm run build && npm run export && npm run afterBuild"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
