@@ -1,57 +1,29 @@
 {
-  "name": "morteza-jamali.github.io",
-  "description": "Morteza Jamali portfolio website",
-  "version": "0.1.1",
-  "main": "index.js",
+  "name": "moraj-website",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
-    "afterBuild": "echo . >> ./out/.nojekyll && echo moraj.ir >> ./out/CNAME",
-    "deploy": "npm run build && npm run export && npm run afterBuild"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "date-fns": "^2.11.1",
-    "gray-matter": "^4.0.2",
-    "next": "^10.1.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-fela": "^11.6.1",
-    "remark": "^12.0.0",
-    "remark-html": "^12.0.0"
+    "@headlessui/react": "^1.3.0",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@types/node": "^13.11.0",
-    "@types/react": "^17.0.1",
-    "typescript": "^4.2.0"
-  },
-  "directories": {
-    "lib": "lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/morteza-jamali/morteza-jamali.github.io.git"
-  },
-  "keywords": [
-    "morteza",
-    "jamali",
-    "morteza-jamali",
-    "website",
-    "blog",
-    "portfolio"
-  ],
-  "author": {
-    "name": "Morteza Jamali",
-    "email": "mortezajamali4241@gmail.com",
-    "url": "https://moraj.ir"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/morteza-jamali/morteza-jamali.github.io/issues"
-  },
-  "homepage": "https://github.com/morteza-jamali/morteza-jamali.github.io#readme"
+    "@types/node": "^16.0.0",
+    "@types/react": "^17.0.13",
+    "autoprefixer": "^10.2.6",
+    "daisyui": "^1.6.1",
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.4",
+    "typescript": "^4.3.5"
+  }
 }

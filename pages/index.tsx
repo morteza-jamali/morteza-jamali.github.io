@@ -1,36 +1,54 @@
-import { FunctionComponent } from "react";
-import { Container, Box } from "@material-ui/core";
-import { useFela } from "react-fela";
-import { Home } from "@material-ui/icons";
-import { Head, SideBar, ISideBarProps } from "../components/.";
-import { flexBox, fixedBox } from "../styles/index.style";
+import React from 'react';
+import { Transition, Menu } from '@headlessui/react';
 
-const lists: ISideBarProps["lists"] = [
-  [
-    { text: "home", Icon: Home },
-    { text: "home", Icon: Home },
-    { text: "home", Icon: Home },
-  ],
-];
-
-const Index: FunctionComponent = () => {
-  const { css } = useFela();
-
+export const Index = () => {
   return (
-    <Container disableGutters maxWidth={false}>
-      <Head title="My Portfolio" />
-      <Box className={fixedBox(css)}>
-        <Box className={flexBox(css)}>
-          <SideBar lists={lists} />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta
-            officiis architecto ratione fuga. Vel voluptatem, iusto amet
-            laborum, quibusdam, aliquid eius harum aperiam dolor placeat dolores
-            quaerat ipsum ut laudantium?
-          </p>
-        </Box>
-      </Box>
-    </Container>
+    <>
+      <div
+        className="flex w-full min-h-screen items-center justify-center bg-base-300 text-base-content"
+        data-theme="dark"
+      >
+        <Menu as="div" className="relative inline-block">
+          {({ open }) => (
+            <>
+              <div>
+                <Menu.Button className="btn btn-primary">Menu</Menu.Button>
+              </div>
+              <Transition
+                show={open}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items
+                  static
+                  className="focus:outline-none menu p-3 shadow-lg bg-base-100 rounded-box rounded-box absolute w-56 mt-2"
+                >
+                  <Menu.Item>
+                    <li>
+                      <a>Item 1</a>
+                    </li>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <li>
+                      <a>Item 2</a>
+                    </li>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <li>
+                      <a>Item 3</a>
+                    </li>
+                  </Menu.Item>
+                </Menu.Items>
+              </Transition>
+            </>
+          )}
+        </Menu>
+      </div>
+    </>
   );
 };
 
