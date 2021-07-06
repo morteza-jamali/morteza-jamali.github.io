@@ -1,5 +1,5 @@
 import React from 'react';
-import { SideBar, ISideBarProps, Base } from '../components/.';
+import { SideBar, ISideBarProps, Base, Avatar, Content } from '../components/.';
 import {
   HomeIcon,
   FireIcon,
@@ -36,8 +36,28 @@ const sidebarItems: ISideBarProps['items'] = [
 
 export const Index = () => {
   return (
-    <Base className="dark bg-gray-500">
-      <SideBar items={sidebarItems} />
+    <Base className="dark bg-gray-500 flex">
+      <div>
+        <SideBar items={sidebarItems} />
+      </div>
+      <Content>
+        <div className="block w-full h-full relative flex flex-col justify-center items-center">
+          <div className="flex">
+            <h1 className="text-7xl font-extrabold flex flex-col items-end">
+              <span>Welcome to</span>
+              <span>my blog</span>
+            </h1>
+            <Avatar
+              src="https://avatars.githubusercontent.com/u/42025368?v=4"
+              className="w-60 h-60 ml-10 shadow-lg filter grayscale"
+            />
+          </div>
+          <div className="text-3xl font-light">
+            <span className="italic">- Morteza Jamali</span>
+            <p>I'm a software engineer & full-stack web developer</p>
+          </div>
+        </div>
+      </Content>
     </Base>
   );
 };
