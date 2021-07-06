@@ -14,11 +14,13 @@
     "glamor": "^2.20.40",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
     "@types/react": "^17.0.13",
+    "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "9",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",

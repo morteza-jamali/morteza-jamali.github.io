@@ -1,29 +1,13 @@
 import React from 'react';
-import { css } from 'glamor';
-import { SideBar, ISideBarProps, Base, Avatar, Content } from '../components/.';
+import { Route, Switch } from 'react-router-dom';
+import { SideBar, ISideBarProps, Base, Content } from '../components/.';
 import {
   HomeIcon,
   FireIcon,
   BadgeCheckIcon,
   AcademicCapIcon,
 } from '@heroicons/react/outline';
-import tile1 from '../public/tile1.svg';
-
-const Styles = ({}) => ({
-  root: css({}),
-  avatar: css({
-    '& img': {
-      filter: 'grayscale(100%)',
-    },
-    '&:before': {
-      content: '""',
-      backgroundImage: `url(${tile1.src})`,
-      position: 'absolute',
-      inset: 0,
-      margin: '-2rem',
-    },
-  }),
-});
+import { routes } from '../lib/.';
 
 const sidebarItems: ISideBarProps['items'] = [
   {
@@ -53,33 +37,17 @@ const sidebarItems: ISideBarProps['items'] = [
 ];
 
 export const Index = () => {
-  const { root, avatar } = Styles({});
-
   return (
-    <Base className="dark bg-gray-500 flex" {...root}>
+    <Base className="dark bg-gray-500 flex">
       <div className="select-none">
         <SideBar items={sidebarItems} />
       </div>
       <Content>
-        <div className="block w-full h-full relative flex flex-col justify-center items-center select-none">
-          <div className="flex">
-            <h1 className="text-7xl font-extrabold flex flex-col items-end">
-              <span>Welcome to</span>
-              <span>my blog</span>
-            </h1>
-            <Avatar
-              src="https://avatars.githubusercontent.com/u/42025368?v=4"
-              className="w-60 h-60 ml-10 shadow-lg"
-              {...avatar}
-            />
-          </div>
-          <div className="text-3xl mt-2">
-            <span className="italic bg-gray-100 p-2">Morteza Jamali</span>
-            <p className="font-light mt-3">
-              I'm a software engineer & full-stack web developer
-            </p>
-          </div>
-        </div>
+        <Switch>
+          {routes.map(({ path, view }, key) => (
+            <Route path={path === '/' ? path : `/${path}`} component={view} />
+          ))}
+        </Switch>
       </Content>
     </Base>
   );
