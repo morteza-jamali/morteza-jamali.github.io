@@ -6,7 +6,7 @@ export const Content: FunctionComponent<IContentProps> = ({ ...rest }) => {
   return (
     <div
       {...extendProperties(rest, {
-        className: 'relative flex-1',
+        className: 'relative flex-1 py-4',
       })}
     />
   );
