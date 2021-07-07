@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Avatar } from '../../components/.';
 import { extendProperties } from '@morajlab-website/utilities';
 import { Styles } from './Home.styles';
-import tile1 from '../public/tile1.svg';
+import tile1 from '../../public/tile1.svg';
 import type { IHomeViewProps } from './Home.types';
 
 export const HomeView: FunctionComponent<IHomeViewProps> = ({ ...rest }) => {
