@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import Image from 'next/image';
 import { extendProperties } from '@morajlab-website/utilities';
 import { Styles } from './PostCard.styles';
 import type { IPostCardProps } from './PostCard.types';
@@ -15,10 +16,12 @@ export const PostCard: FunctionComponent<IPostCardProps> = ({ ...rest }) => {
       {...root}
     >
       <a href="#" className="w-full block h-full">
-        <img
+        <Image
           alt="blog photo"
           src="https://www.tailwind-kit.com/images/blog/1.jpg"
-          className="max-h-40 w-full object-cover"
+          className="max-h-40 object-cover"
+          width="100%"
+          height="auto"
         />
         <div className="bg-white dark:bg-gray-800 w-full p-4">
           <p className="text-indigo-500 text-md font-medium">Article</p>
