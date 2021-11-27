@@ -1,31 +1,49 @@
 {
-  "name": "moraj-website",
-  "version": "0.1.0",
+  "name": "morteza-jamali.github.io",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "preinstall": "npm config set '@morajlab:registry' https://node.bit.dev",
+    "format:prettier": "prettier --write --ignore-unknown",
+    "format:css": "stylelint",
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "@heroicons/react": "^1.0.1",
-    "@morajlab-website/utilities": "^0.0.1",
-    "glamor": "^2.20.40",
-    "next": "11.0.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "simplebar-react": "^2.3.4"
+  "lint-staged": {
+    "**/*": "npm run format:prettier",
+    "**/*.css": "npm run format:css"
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "@types/react": "^17.0.13",
-    "autoprefixer": "9",
-    "eslint": "7.30.0",
-    "eslint-config-next": "11.0.1",
-    "postcss": "7",
-    "prettier": "^2.3.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "typescript": "^4.3.5"
-  }
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@morajlab/config.prettier": "^0.0.1",
+    "commitlint": "^15.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard": "^24.0.0"
+  },
+  "description": "My blog - find my projects, skills level, posts and etc. here",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morteza-jamali/morteza-jamali.github.io.git"
+  },
+  "keywords": [
+    "morteza",
+    "jamali",
+    "moraj",
+    "morajlab",
+    "blog",
+    "programmer"
+  ],
+  "author": {
+    "name": "Morteza Jamali",
+    "email": "mortezajamali4241@gmail.com",
+    "url": "https://moraj.ir"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morteza-jamali/morteza-jamali.github.io/issues"
+  },
+  "homepage": "https://github.com/morteza-jamali/morteza-jamali.github.io#readme"
 }
