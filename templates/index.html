@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="icon" href="{{ get_url(path='favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ get_url(path='reset.css') }}" />
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}" />
+  </head>
+  <body>
+    <div data-comp-type="base">
+      <div data-comp-type="leftSideBar">
+        <ul>
+          <li data-active><a href="">Home</a></li>
+          <li><a href="">Projects</a></li>
+          <li><a href="">Posts</a></li>
+          <li><a href="">About me</a></li>
+        </ul>
+      </div>
+      <div data-comp-type="rightSide">
+        <div data-comp-type="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam
+          ipsam suscipit magni corrupti assumenda et, odit nesciunt ut, quo
+          deserunt, fuga quae quam voluptate perferendis consequatur quaerat!
+          Mollitia, magnam!
+        </div>
+        <footer>This is footer content</footer>
+      </div>
+    </div>
+  </body>
+</html>
