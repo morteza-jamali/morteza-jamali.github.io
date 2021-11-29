@@ -41,6 +41,11 @@ footer {
 
 [data-comp-type="rightSide"] {
   position: relative;
+  flex-grow: 1;
+}
+
+[data-comp-type="bold"] {
+  font-weight: 700;
 }
 
 [data-comp-type="leftSideBar"] {
