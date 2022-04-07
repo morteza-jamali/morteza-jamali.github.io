@@ -1,26 +1,20 @@
 {
   "name": "morteza-jamali.github.io",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
-  "scripts": {
-    "preinstall": "npm config set '@morajlab:registry' https://node.bit.dev",
-    "format:prettier": "prettier --write --ignore-unknown",
-    "format:css": "stylelint",
-    "prepare": "husky install"
-  },
   "lint-staged": {
-    "**/*": "npm run format:prettier",
-    "**/*.css": "npm run format:css"
+    "**/*": "./scripts/format.sh -t prettier",
+    "**/*.css": "./scripts/format.sh -t stylelint"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
-    "@morajlab/config.prettier": "^0.0.1",
     "commitlint": "^15.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.0",
     "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^24.0.0"
   },
   "description": "My blog - find my projects, skills level, posts and etc. here",

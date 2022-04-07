@@ -8,7 +8,7 @@ button {
   cursor: default;
 }
 
-[data-comp-type="action"] {
+[data-comp-type='action'] {
   border: 2px solid gray;
   padding: 5px;
   cursor: default;
@@ -27,7 +27,7 @@ footer {
   user-select: none;
 }
 
-[data-comp-type="base"] {
+[data-comp-type='base'] {
   position: fixed;
   inset: 0;
   overflow: hidden;
@@ -35,20 +35,20 @@ footer {
   flex-wrap: nowrap;
 }
 
-[data-comp-type="content"] {
+[data-comp-type='content'] {
   padding: 5px;
 }
 
-[data-comp-type="rightSide"] {
+[data-comp-type='rightSide'] {
   position: relative;
   flex-grow: 1;
 }
 
-[data-comp-type="bold"] {
+[data-comp-type='bold'] {
   font-weight: 700;
 }
 
-[data-comp-type="leftSideBar"] {
+[data-comp-type='leftSideBar'] {
   background-color: rgba(0, 0, 0, 0.1);
   border-right: 2px solid #aaa;
   width: 250px;
