@@ -1,0 +1,56 @@
+{
+  "root": "packages/morteza-jamali/blog/blog",
+  "sourceRoot": "packages/morteza-jamali/blog/blog",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "packages/morteza-jamali/blog/blog",
+        "outputPath": "dist/packages/morteza-jamali/blog/blog"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "morteza-jamali-blog-blog:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "morteza-jamali-blog-blog:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "morteza-jamali-blog-blog:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/morteza-jamali/blog/blog"],
+      "options": {
+        "jestConfig": "packages/morteza-jamali/blog/blog/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/morteza-jamali/blog/blog/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,30 @@
+{
+  "root": "packages/morteza-jamali/blog/components-e2e",
+  "sourceRoot": "packages/morteza-jamali/blog/components-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/morteza-jamali/blog/components-e2e/cypress.json",
+        "devServerTarget": "morteza-jamali-blog-components:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "morteza-jamali-blog-components:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/morteza-jamali/blog/components-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["morteza-jamali-blog-components"]
+}

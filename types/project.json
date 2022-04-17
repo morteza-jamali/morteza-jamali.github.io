@@ -1,0 +1,25 @@
+{
+  "root": "packages/morteza-jamali/blog/types",
+  "sourceRoot": "packages/morteza-jamali/blog/types/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/morteza-jamali/blog/types/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/morteza-jamali/blog/types"],
+      "options": {
+        "jestConfig": "packages/morteza-jamali/blog/types/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
