@@ -1,0 +1,43 @@
+{
+  "name": "morteza-jamali.github.io",
+  "version": "0.0.3",
+  "private": true,
+  "lint-staged": {
+    "**/*": "./scripts/format.sh -t prettier",
+    "**/*.css": "./scripts/format.sh -t stylelint"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "commitlint": "^15.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0"
+  },
+  "description": "My blog - find my projects, skills level, posts and etc. here",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morteza-jamali/morteza-jamali.github.io.git"
+  },
+  "keywords": [
+    "morteza",
+    "jamali",
+    "moraj",
+    "morajlab",
+    "blog",
+    "programmer"
+  ],
+  "author": {
+    "name": "Morteza Jamali",
+    "email": "mortezajamali4241@gmail.com",
+    "url": "https://moraj.ir"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morteza-jamali/morteza-jamali.github.io/issues"
+  },
+  "homepage": "https://github.com/morteza-jamali/morteza-jamali.github.io#readme"
+}

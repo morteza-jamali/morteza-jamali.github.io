@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="icon" href="{{ get_url(path='favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ get_url(path='reset.css') }}" />
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}" />
+  </head>
+  <body>
+    <div data-comp-type="base">
+      <div data-comp-type="leftSideBar">
+        <ul>
+          <li data-active><a href="#!">Home</a></li>
+          <li><a href="#!">Projects</a></li>
+          <li><a href="#!">Posts</a></li>
+          <li><a href="#!">About me</a></li>
+        </ul>
+      </div>
+      <div data-comp-type="rightSide">
+        <div data-comp-type="content">
+          <h2>Welcome to my blog</h2>
+          <p>My name is Morteza Jamali</p>
+          <p>I'm a software engineer & full-stack web developer</p>
+        </div>
+        <footer>
+          Copyright © 2021 <span data-comp-type="bold">Moraj</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
